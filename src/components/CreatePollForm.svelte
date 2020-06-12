@@ -6,13 +6,13 @@
 
   let fields = {
     question: "",
-    anserA: "",
-    anserB: ""
+    answerA: "",
+    answerB: ""
   };
   let errors = {
     question: "",
-    anserA: "",
-    anserB: ""
+    answerA: "",
+    answerB: ""
   };
   let valid = false;
 
@@ -29,20 +29,20 @@
       errors.question = "";
     }
 
-    // validate anser A
-    if (fields.anserA.trim().length < 1) {
+    // validate answer A
+    if (fields.answerA.trim().length < 1) {
       valid = false;
-      errors.anserA = "Anser A cannnot be empty";
+      errors.answerA = "answer A cannnot be empty";
     } else {
-      errors.anserA = "";
+      errors.answerA = "";
     }
 
-    // validate anser B
-    if (fields.anserB.trim().length < 1) {
+    // validate answer B
+    if (fields.answerB.trim().length < 1) {
       valid = false;
-      errors.anserB = "Anser B cannnot be empty";
+      errors.answerB = "answer B cannnot be empty";
     } else {
-      errors.anserB = "";
+      errors.answerB = "";
     }
 
     // add new poll
@@ -87,14 +87,14 @@
     <div class="error">{errors.question}</div>
   </div>
   <div class="form-field">
-    <label for="anser-a">Anser A:</label>
-    <input type="text" id="anser-a" bind:value={fields.anserA} />
-    <div class="error">{errors.anserA}</div>
+    <label for="answer-a">answer A:</label>
+    <input type="text" id="answer-a" bind:value={fields.answerA} />
+    <div class="error">{errors.answerA}</div>
   </div>
   <div class="form-field">
-    <label for="anser-b">Anser B:</label>
-    <input type="text" id="anser-b" bind:value={fields.anserB} />
-    <div class="error">{errors.anserB}</div>
+    <label for="answer-b">answer B:</label>
+    <input type="text" id="answer-b" bind:value={fields.answerB} />
+    <div class="error">{errors.answerB}</div>
   </div>
 
   <Button type="secondary" flat={true}>Add Poll</Button>
