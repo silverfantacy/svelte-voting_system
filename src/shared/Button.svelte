@@ -38,6 +38,7 @@
   }
 </style>
 
-<button class={type} class:flat class:inverse>
+<!-- 添加 click 事件 -->
+<button class={type} class:flat class:inverse on:click>
   <slot />
 </button>
