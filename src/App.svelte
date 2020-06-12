@@ -15,29 +15,8 @@
   };
 
   const handleAdd = e => {
-    console.log("handleAdd", e);
-    const poll = e.detail;
-    polls = [poll, ...polls];
-    console.log("polls", polls);
+    // 使用 store 後只負責跳轉
     activeItem = "Current Polls"; // 切換顯示元件
-  };
-
-  const handleVote = e => {
-    const { id, option } = e.detail;
-
-		let copiedPolls = [...polls];
-		// 疑問？ 為什麼需要複製？
-    console.log("test", copiedPolls[0] == polls[0]);
-    let upvotedPoll = copiedPolls.find(poll => poll.id == id);
-
-    if (option === "a") {
-      upvotedPoll.votesA++;
-    }
-    if (option === "b") {
-      upvotedPoll.votesB++;
-    }
-
-    polls = copiedPolls;
   };
 </script>
 
@@ -54,7 +33,7 @@
   <Tabs {activeItem} {items} on:tabChange={tabChange} />
 
   {#if activeItem === 'Current Polls'}
-    <PollList on:vote={handleVote} />
+    <PollList />
   {:else if activeItem === 'Add new Poll'}
     <CreatePollForm on:add={handleAdd} />
   {/if}

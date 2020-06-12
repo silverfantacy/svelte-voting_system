@@ -1,20 +1,30 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import PollStore from "../stores/Polltore.js";
   import Card from "../shared/Card.svelte";
 
   export let poll;
-  const dispatch = createEventDispatcher();
 
   // reactive values
   $: totalVotes = poll.votesA + poll.votesB;
-  $: percentA = Math.floor(100 / totalVotes * poll.votesA)
-  $: percentB = Math.floor(100 / totalVotes * poll.votesB)
+  $: percentA = Math.floor((100 / totalVotes) * poll.votesA);
+  $: percentB = Math.floor((100 / totalVotes) * poll.votesB);
 
   // handling Votes
   const handleVote = (option, id) => {
-    console.log("handleVote", option, id, {option, id});
-    dispatch('vote', {option, id})
-  }
+    PollStore.update(currentPolls => {
+      let copiedPolls = [...currentPolls];
+      let upvotedPoll = copiedPolls.find(poll => poll.id == id);
+
+      if (option === "a") {
+        upvotedPoll.votesA++;
+      }
+      if (option === "b") {
+        upvotedPoll.votesB++;
+      }
+
+      return copiedPolls;
+    });
+  };
 </script>
 
 <style>
@@ -48,11 +58,11 @@
   }
   .percent-a {
     border-left: 4px solid #d91b42;
-    background: rgba(217,27,66,.2);
+    background: rgba(217, 27, 66, 0.2);
   }
   .percent-b {
     border-left: 4px solid #45c496;
-    background: rgba(69,196,150,.2);
+    background: rgba(69, 196, 150, 0.2);
   }
 </style>
 
@@ -61,12 +71,12 @@
     <h3>{poll.question}</h3>
     <p>總投票數：{totalVotes}</p>
     <div class="answer" on:click={() => handleVote('a', poll.id)}>
-      <div class="percent percent-a" style="width: {percentA}%"/>
+      <div class="percent percent-a" style="width: {percentA}%" />
       <span>{poll.answerA} ({poll.votesA})</span>
     </div>
 
     <div class="answer" on:click={() => handleVote('b', poll.id)}>
-      <div class="percent percent-b" style="width: {percentB}%"/>
+      <div class="percent percent-b" style="width: {percentB}%" />
       <span>{poll.answerB} ({poll.votesB})</span>
     </div>
 

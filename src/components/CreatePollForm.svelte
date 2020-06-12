@@ -1,4 +1,5 @@
 <script>
+  import PollStore from '../stores/Polltore.js'
   import { createEventDispatcher } from "svelte";
   import Button from "../shared/Button.svelte";
 
@@ -51,7 +52,13 @@
       // let poll = {...fields, votesA: 0, votesB: 0, id: Math.random()}
       // console.log("valid", fields);
       console.log("poll", poll);
-      dispatch('add', poll);
+      // dispatch('add', poll);
+
+      // save poll to store, currentPolls是當前store內的值
+      PollStore.update( currentPolls => {
+        return [poll, ...currentPolls];
+      })  //直接寫入 store
+      dispatch('add');  // add 只負責跳轉了
     }
   };
 </script>
