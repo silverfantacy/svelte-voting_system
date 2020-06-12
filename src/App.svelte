@@ -14,18 +14,6 @@
     activeItem = e.detail;
   };
 
-  // polls
-  let polls = [
-    {
-      id: 1,
-      question: "馬自立今晚要直播的主題是？",
-      answerA: "歌回",
-      answerB: "雜談",
-      votesA: 9,
-      votesB: 15
-    }
-  ];
-
   const handleAdd = e => {
     console.log("handleAdd", e);
     const poll = e.detail;
@@ -66,7 +54,7 @@
   <Tabs {activeItem} {items} on:tabChange={tabChange} />
 
   {#if activeItem === 'Current Polls'}
-    <PollList {polls} on:vote={handleVote} />
+    <PollList on:vote={handleVote} />
   {:else if activeItem === 'Add new Poll'}
     <CreatePollForm on:add={handleAdd} />
   {/if}
