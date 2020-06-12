@@ -19,5 +19,5 @@
 </style>
 
 <footer>
-  <div class="copyright">Copyright &copy; 2020 Zero</div>
+  <div class="copyright">Copyright &copy; 2020 Zero 學習使用</div>
 </footer>
