@@ -1,5 +1,7 @@
 <script>
   // import { onMount, onDestroy } from "svelte";  // 生命週期
+  import { fade, slide, scale } from "svelte/transition";
+  import { flip } from "svelte/animate";
   import PollStore from "../stores/Polltore.js";
   import PollDetails from "./PollDetails.svelte";
 
@@ -30,10 +32,8 @@
 
 <div class="poll-list">
   {#each $PollStore as poll (poll.id)}
-    <div>
-      <!-- {poll.question} -->
-      <PollDetails {poll} on:vote />
-      <!-- on:vote 來承接父子層的溝通 -->
+    <div in:fade out:scale|local animate:flip={{ duration: 500 }}>
+      <PollDetails {poll} />
     </div>
   {/each}
 </div>
