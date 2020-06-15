@@ -51,9 +51,16 @@
       // await console.log('dbData',dbData);
       await PollStore.set(dbData)  // 把 dbDate 直接寫入 store
     })
-    .catch((error)=> {
-      console.log(error)
-    })
+
+    // 即時取得最新資料
+    db.orderBy("id", "desc").onSnapshot(async querySnapshot => {
+      dbData = [] // 清空初始資料
+      await querySnapshot.forEach(doc => {
+        // console.log('onSnapshot',doc.id, doc.data());
+        dbData = [...dbData, doc.data()]
+      });
+      await PollStore.set(dbData)
+    });
 
 </script>
 

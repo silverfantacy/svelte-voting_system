@@ -2792,7 +2792,7 @@ var app = (function () {
     const { console: console_1$2 } = globals;
     const file$8 = "src/App.svelte";
 
-    // (74:42) 
+    // (81:42) 
     function create_if_block_1(ctx) {
     	let createpollform;
     	let current;
@@ -2826,14 +2826,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(74:42) ",
+    		source: "(81:42) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (72:2) {#if activeItem === 'Current Polls'}
+    // (79:2) {#if activeItem === 'Current Polls'}
     function create_if_block(ctx) {
     	let polllist;
     	let current;
@@ -2866,7 +2866,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(72:2) {#if activeItem === 'Current Polls'}",
+    		source: "(79:2) {#if activeItem === 'Current Polls'}",
     		ctx
     	});
 
@@ -2921,7 +2921,7 @@ var app = (function () {
     			t2 = space();
     			create_component(footer.$$.fragment);
     			attr_dev(main, "class", "svelte-3yykcz");
-    			add_location(main, file$8, 67, 0, 1734);
+    			add_location(main, file$8, 74, 0, 1982);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3063,8 +3063,18 @@ var app = (function () {
 
     		// await console.log('dbData',dbData);
     		await PollStore.set(dbData); // 把 dbDate 直接寫入 store
-    	}).catch(error => {
-    		console.log(error);
+    	});
+
+    	// 即時取得最新資料
+    	db.orderBy("id", "desc").onSnapshot(async querySnapshot => {
+    		dbData = []; // 清空初始資料
+
+    		await querySnapshot.forEach(doc => {
+    			// console.log('onSnapshot',doc.id, doc.data());
+    			dbData = [...dbData, doc.data()];
+    		});
+
+    		await PollStore.set(dbData);
     	});
 
     	const writable_props = [];
