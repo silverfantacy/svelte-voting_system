@@ -71,8 +71,9 @@
 
 <style>
   form {
-    width: 400px;
+    max-width: 400px;
     margin: 0 auto;
+    padding: 0 20px;
     text-align: center;
   }
   .form-field {
@@ -90,6 +91,12 @@
     font-weight: bold;
     font-size: 12px;
     color: #d91b42;
+  }
+  
+  @media screen and (min-width: 480px){
+    form {
+      padding: 0;
+    }
   }
 </style>
 

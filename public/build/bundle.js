@@ -1478,7 +1478,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file$4 = "src/components/CreatePollForm.svelte";
 
-    // (113:2) <Button type="secondary" flat={true}>
+    // (120:2) <Button type="secondary" flat={true}>
     function create_default_slot(ctx) {
     	let t;
 
@@ -1498,7 +1498,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(113:2) <Button type=\\\"secondary\\\" flat={true}>",
+    		source: "(120:2) <Button type=\\\"secondary\\\" flat={true}>",
     		ctx
     	});
 
@@ -1581,40 +1581,40 @@ var app = (function () {
     			t14 = space();
     			create_component(button.$$.fragment);
     			attr_dev(label0, "for", "question");
-    			attr_dev(label0, "class", "svelte-1ub4sem");
-    			add_location(label0, file$4, 97, 4, 2180);
+    			attr_dev(label0, "class", "svelte-rtjreu");
+    			add_location(label0, file$4, 104, 4, 2287);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "id", "question");
-    			attr_dev(input0, "class", "svelte-1ub4sem");
-    			add_location(input0, file$4, 98, 4, 2229);
-    			attr_dev(div0, "class", "error svelte-1ub4sem");
-    			add_location(div0, file$4, 99, 4, 2298);
-    			attr_dev(div1, "class", "form-field svelte-1ub4sem");
-    			add_location(div1, file$4, 96, 2, 2151);
+    			attr_dev(input0, "class", "svelte-rtjreu");
+    			add_location(input0, file$4, 105, 4, 2336);
+    			attr_dev(div0, "class", "error svelte-rtjreu");
+    			add_location(div0, file$4, 106, 4, 2405);
+    			attr_dev(div1, "class", "form-field svelte-rtjreu");
+    			add_location(div1, file$4, 103, 2, 2258);
     			attr_dev(label1, "for", "answer-a");
-    			attr_dev(label1, "class", "svelte-1ub4sem");
-    			add_location(label1, file$4, 102, 4, 2381);
+    			attr_dev(label1, "class", "svelte-rtjreu");
+    			add_location(label1, file$4, 109, 4, 2488);
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "id", "answer-a");
-    			attr_dev(input1, "class", "svelte-1ub4sem");
-    			add_location(input1, file$4, 103, 4, 2425);
-    			attr_dev(div2, "class", "error svelte-1ub4sem");
-    			add_location(div2, file$4, 104, 4, 2493);
-    			attr_dev(div3, "class", "form-field svelte-1ub4sem");
-    			add_location(div3, file$4, 101, 2, 2352);
+    			attr_dev(input1, "class", "svelte-rtjreu");
+    			add_location(input1, file$4, 110, 4, 2532);
+    			attr_dev(div2, "class", "error svelte-rtjreu");
+    			add_location(div2, file$4, 111, 4, 2600);
+    			attr_dev(div3, "class", "form-field svelte-rtjreu");
+    			add_location(div3, file$4, 108, 2, 2459);
     			attr_dev(label2, "for", "answer-b");
-    			attr_dev(label2, "class", "svelte-1ub4sem");
-    			add_location(label2, file$4, 107, 4, 2575);
+    			attr_dev(label2, "class", "svelte-rtjreu");
+    			add_location(label2, file$4, 114, 4, 2682);
     			attr_dev(input2, "type", "text");
     			attr_dev(input2, "id", "answer-b");
-    			attr_dev(input2, "class", "svelte-1ub4sem");
-    			add_location(input2, file$4, 108, 4, 2619);
-    			attr_dev(div4, "class", "error svelte-1ub4sem");
-    			add_location(div4, file$4, 109, 4, 2687);
-    			attr_dev(div5, "class", "form-field svelte-1ub4sem");
-    			add_location(div5, file$4, 106, 2, 2546);
-    			attr_dev(form, "class", "svelte-1ub4sem");
-    			add_location(form, file$4, 95, 0, 2101);
+    			attr_dev(input2, "class", "svelte-rtjreu");
+    			add_location(input2, file$4, 115, 4, 2726);
+    			attr_dev(div4, "class", "error svelte-rtjreu");
+    			add_location(div4, file$4, 116, 4, 2794);
+    			attr_dev(div5, "class", "form-field svelte-rtjreu");
+    			add_location(div5, file$4, 113, 2, 2653);
+    			attr_dev(form, "class", "svelte-rtjreu");
+    			add_location(form, file$4, 102, 0, 2208);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1934,7 +1934,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if (default_slot) default_slot.c();
-    			attr_dev(div, "class", "card svelte-1lfqa8o");
+    			attr_dev(div, "class", "card svelte-6bg2vc");
     			add_location(div, file$5, 0, 0, 0);
     		},
     		l: function claim(nodes) {
@@ -2571,7 +2571,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (36:2) {#each $PollStore as poll (poll.id)}
+    // (41:2) {#each $PollStore as poll (poll.id)}
     function create_each_block$1(key_1, ctx) {
     	let div;
     	let polldetails;
@@ -2594,7 +2594,7 @@ var app = (function () {
     			div = element("div");
     			create_component(polldetails.$$.fragment);
     			t = space();
-    			add_location(div, file$7, 36, 4, 845);
+    			add_location(div, file$7, 41, 4, 949);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -2653,7 +2653,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(36:2) {#each $PollStore as poll (poll.id)}",
+    		source: "(41:2) {#each $PollStore as poll (poll.id)}",
     		ctx
     	});
 
@@ -2684,8 +2684,8 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(div, "class", "poll-list svelte-zry4k9");
-    			add_location(div, file$7, 34, 0, 778);
+    			attr_dev(div, "class", "poll-list svelte-s2xblk");
+    			add_location(div, file$7, 39, 0, 882);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
