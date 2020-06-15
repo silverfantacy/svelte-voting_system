@@ -71,6 +71,7 @@
     cursor: pointer;
     margin: 10px auto;
     position: relative;
+    line-height: 25px;
   }
   .answer:hover {
     opacity: 0.6;
