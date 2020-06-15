@@ -58,6 +58,12 @@
       PollStore.update( currentPolls => {
         return [poll, ...currentPolls];
       })  //直接寫入 store
+
+      // 寫入 db 紀錄
+      db.doc(poll.id.toString()).set(JSON.parse(JSON.stringify(poll)))
+        // .then((response) => console.log("db", response))
+        // .catch((error) => console.log("db", error))
+
       dispatch('add');  // add 只負責跳轉了
     }
   };

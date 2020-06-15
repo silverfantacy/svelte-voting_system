@@ -31,6 +31,9 @@
         upvotedPoll.votesB++;
       }
 
+      // 新增 db 資料
+      db.doc(upvotedPoll.id.toString()).update(upvotedPoll)
+
       return copiedPolls;
     });
   };
@@ -38,6 +41,15 @@
   // handleDelete
   const handleDelete = (id) => {
     PollStore.update(currentPolls => {
+
+      // 刪除 db 資料
+      db.doc(id.toString()).delete()
+        .then((result) => {
+          console.log('刪除成功')
+        }).catch((err) => {
+          console.log('刪除失敗')
+        });
+
       return currentPolls.filter(poll => poll.id != id);
     })
   }

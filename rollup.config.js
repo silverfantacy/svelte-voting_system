@@ -4,6 +4,10 @@ import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 
+// 設定 env 用
+import { config } from 'dotenv';
+import replace from '@rollup/plugin-replace';
+
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
@@ -46,7 +50,18 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+
+		// 設定 env 用
+		replace({
+			// stringify the object
+			process: JSON.stringify({
+				env: {
+					isProd: production,
+					...config().parsed // attached the .env config
+				}
+			}),
+		}),
 	],
 	watch: {
 		clearScreen: false
